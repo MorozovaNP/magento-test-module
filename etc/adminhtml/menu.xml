@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Morozova_Test::test" title="Morozova Test" translate="title" module="Morozova_Test" sortOrder="70" parent="Magento_Backend::system" resource="Morozova_Test::morozova"/>
+        <add id="Morozova_Test::test_categories" title="Test" translate="title" module="Morozova_Test" sortOrder="10" parent="Morozova_Test::test" action="morozova_test/category" resource="Morozova_Test::categories"/>
+    </menu>
+</config>
