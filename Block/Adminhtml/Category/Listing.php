@@ -10,18 +10,26 @@ class Listing extends \Magento\Backend\Block\Template
     protected $categoryCollectionFactory;
 
     /**
+     * @var \Morozova\Test\Model\Config
+     */
+    protected $config;
+
+    /**
      * Listing constructor.
      * @param \Morozova\Test\Model\ResourceModel\Category\CollectionFactory $categoryCollectionFactory
      * @param \Magento\Backend\Block\Template\Context $context
+     * @param \Morozova\Test\Model\Config $config
      * @param array $data
      */
     public function __construct(
         \Morozova\Test\Model\ResourceModel\Category\CollectionFactory $categoryCollectionFactory,
         \Magento\Backend\Block\Template\Context $context,
+        \Morozova\Test\Model\Config $config,
         array $data = []
     ) {
         parent::__construct($context, $data);
         $this->categoryCollectionFactory = $categoryCollectionFactory;
+        $this->config = $config;
     }
 
     /**
@@ -29,9 +37,10 @@ class Listing extends \Magento\Backend\Block\Template
      */
     public function getFilteredCategories()
     {
+        $categoryFilter = $this->config->getCategoryFilter();
         $categoryCollection = $this->categoryCollectionFactory
             ->create()
-            ->addAttributeToFilterCaseSensitive('name', ['like' => '%A%'])
+            ->addAttributeToFilterCaseSensitive('name', ['like' => '%' . $categoryFilter . '%'])
             ->addAttributeToSelect('name');
         $categories = $categoryCollection->getItems();
 
