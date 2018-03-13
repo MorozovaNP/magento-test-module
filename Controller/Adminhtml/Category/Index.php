@@ -5,6 +5,10 @@ namespace Morozova\Test\Controller\Adminhtml\Category;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 
+/**
+ * Class Index
+ * @package Morozova\Test\Controller\Adminhtml\Category
+ */
 class Index extends \Magento\Backend\App\Action
 {
     /**
