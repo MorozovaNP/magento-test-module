@@ -9,9 +9,14 @@ namespace Morozova\Test\Model;
 class Config
 {
     /**
-     * Category filter config path
+     * Category filter config path.
      */
     const XML_PATH_CATEGORY_FILTER = 'morozova_test/category/filter';
+
+    /**
+     * Display review count config path.
+     */
+    const XML_PATH_DISPLAY_REVIEW_COUNT = 'morozova_test/product/review_count';
 
     /**
      * @var \Magento\Framework\App\Config\ScopeConfigInterface
@@ -36,5 +41,15 @@ class Config
     public function getCategoryFilter()
     {
         return $this->scopeConfig->getValue(self::XML_PATH_CATEGORY_FILTER);
+    }
+
+    /**
+     * Display review count flag.
+     *
+     * @return bool
+     */
+    public function isDisplayReviewCount()
+    {
+        return $this->scopeConfig->isSetFlag(self::XML_PATH_DISPLAY_REVIEW_COUNT);
     }
 }

@@ -2,6 +2,10 @@
 
 namespace Morozova\Test\Block\Adminhtml\Category;
 
+/**
+ * Class Listing
+ * @package Morozova\Test\Block\Adminhtml\Category
+ */
 class Listing extends \Magento\Backend\Block\Template
 {
     /**
